@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #ffffff;
+  --stone: #f4f3f0;
+  --ink: #111111;
+  --muted: #737373;
+  --line: #e7e5e1;
+  --sale: #b42318;
+  --sand: #f6f2ec;
+  --sand-deep: #ebe4d8;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-stone: var(--stone);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-sale: var(--sale);
+  --color-sand: var(--sand);
+  --color-sand-deep: var(--sand-deep);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 0.85rem 1rem;
+  font-size: 14px;
+  outline: none;
+}
+/* Below 16px, iOS Safari zooms the page when a field is focused. */
+@media (max-width: 639px) {
+  .field {
+    font-size: 16px;
+  }
+}
+.field:focus {
+  border-color: var(--ink);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 1rem 1.75rem;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.btn:hover {
+  opacity: 0.85;
+}
+.btn:disabled {
+  opacity: 0.4;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--paper);
+  opacity: 1;
+}
+
+/* Swipeable rows (category tabs, product strips): scroll by touch, no scrollbar track. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
